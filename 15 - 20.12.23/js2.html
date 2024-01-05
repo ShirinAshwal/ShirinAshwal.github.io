@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="mycard0" src="" alt="" width="300" height="300">
+    <img id="mycard1" src="" alt="" width="300" height="300">
+    <img id="mycard2" src="" alt="" width="300" height="300">
+    <hr>
+    <img id="compcard0" src="" alt="" width="300" height="300">
+    <img id="compcard1" src="" alt="" width="300" height="300">
+    <img id="compcard2" src="" alt="" width="300" height="300">
+
+
+<script>
+           for (let i = 0; i <= 2; i++) {
+        let mycard = parseInt(Math.floor(Math.random() * 3)) 
+        let compcard = parseInt(Math.floor(Math.random() * 3)) 
+
+  
+        switch (mycard) {
+        case 0: document.getElementById('mycard' + i). src = 'images/rock.jpg'
+        break;
+        case 1: document.getElementById('mycard' + i). src = 'images/paper.jpg'
+        break;
+        case 2: document.getElementById('mycard' + i). src = 'images/scissors.jpg'
+    }
+
+
+    switch (compcard) {
+        case 0: document.getElementById('compcard' + i). src = 'images/rock.jpg'
+        break;
+        case 1: document.getElementById('compcard' + i). src = 'images/paper.jpg'
+        break;
+        case 2: document.getElementById('compcard' + i). src = 'images/scissors.jpg'
+    }
+
+           
+    if (mycard < compcard)
+            document.write('<h1 style="color:red">=== LOSE ===</h1>')
+        else if (mycard > compcard)
+            document.write('<h1 style="color:green">=== WIN ===</h1>')
+        else  {
+            document.write('<h1 style="color:pink">=== DRAW ===</h1>')
+        }
+
+           }
+</script>
+
+
+
+
+
+
+
+
+    
+</body>
+</html>
