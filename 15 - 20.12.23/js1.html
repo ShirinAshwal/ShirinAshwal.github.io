@@ -4,10 +4,8 @@
 <head>
     <title>Switch case GAME</title>
 </head>
-
 <body>
-
-
+    
     <img id="mycard0" src="" width="200" height="300" />
     <img id="mycard1" src="" width="200" height="300" />
     <img id="mycard2" src="" width="200" height="300" />
@@ -20,17 +18,13 @@
     <img id="compcard3" src="" width="200" height="300" />
     <img id="compcard4" src="" width="200" height="300" />
 
-
-
-
     <script>
         let scum_mycard = 0
         let scum_compcard = 0
         for (let i = 0; i < 5; i++) {
             let mycard = parseInt(Math.floor(Math.random() * 14)) + 2
             let compcard = parseInt(Math.floor(Math.random() * 14)) + 2
-
-
+            
             switch (mycard) {
                 case 2:
                 case 3:
@@ -53,8 +47,6 @@
                 case 15: document.getElementById('mycard' + i).src = 'images/JOKER.png'
                     break;
             }
-
-
 
             switch (compcard) {
                 case 2:
@@ -85,8 +77,6 @@
             if (mycard > compcard) {
                 scum_mycard++
                 document.write('scum my card:' + ' ' + scum_mycard)
-
-
             }
             else if (mycard < compcard) {
                 scum_compcard++
@@ -104,19 +94,9 @@
 
         document.write('<br />')
         document.write('<br />')
-        
-
         document.write('<h4 style="color:black"> scum compcard: </h4>' + scum_compcard)
         document.write('<h4 style="color:black"> scum my card: </h4>' + scum_mycard)
-
-
-
-
-
-
-
     </script>
     
 </body>
-
 </html>
