@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</head>
+<style>
+    #ex1 {
+        padding: 132px;
+        background: url(https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg);
+        background-repeat: no-repeat;
+        background-size: 1250px;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+
+    }
+</style>
+
+<body>
+    <div id="ex1">
+
+            <form action="">
+            <h5><b>Add Menu Item</b></h5><br>
+            <p>ID: <input type="number" id="id_txt" autofocus required> &ensp; Item Name: <input type="text" id="id_name" required></p>
+            <p>Description: <input type="text" id="id_description" required> &ensp; Price: <input type="number" id="id_price" required></p>
+            <p>Picture URL: <input type="text" id="id_picture" required></p>
+            <button onclick="add_click()" class="btn btn-danger">Add Menu Item</button>
+           </form>
+        
+        <h1 style="color:indianred">Menu</h1>
+        <table id="users_table" class="table">
+            <tr id="table_danger" class="table-danger">
+                <th>ID</th>
+                <th>Item Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Picture</th>
+            </tr>
+        </table>
+        <script>
+            const id = document.getElementById('id_txt')
+            const item_name = document.getElementById('id_name')
+            const description = document.getElementById('id_description')
+            const price = document.getElementById('id_price')
+            const picture = document.getElementById('id_picture')
+            const users_table = document.getElementById('users_table')
+
+            function add_click() {
+                const idv = parseInt(id.value)
+                const item_namev = description.value
+                const descriptionv = description.value
+                const pricev = parseInt(price.value)
+                const picturev = picture.value
+
+                add_row(idv, item_namev, descriptionv, pricev, picturev)
+            }
+
+            function clear_txt() {
+                id.value = ''
+                item_name.value = ''
+                description.value = ''
+                price.value = ''
+                picture.value = ''
+                id.focus()
+            }
+
+            function add_row(idv, item_namev, descriptionv, pricev, picturev) {
+                const new_row = users_table.insertRow(-1)
+
+                const cell_id = new_row.insertCell(0)
+                const cell_name = new_row.insertCell(1)
+                const cell_description = new_row.insertCell(2)
+                const cell_price = new_row.insertCell(3)
+                const cell_picture = new_row.insertCell(4)
+
+
+                cell_id.innerHTML = idv
+                cell_name.innerHTML = item_namev
+                cell_description.innerHTML = descriptionv
+                cell_price.innerHTML = pricev
+                cell_picture.innerHTML = picturev
+
+                switch (picturev.toUpperCase()) {
+                    case 'BROWNIES':
+                        cell_picture.innerHTML = '<img src="https://images.pexels.com/photos/6390688/pexels-photo-6390688.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="height: 100px; width:150px;" />'
+                        break;
+                    case 'PANCAKES':
+                        cell_picture.innerHTML = '<img src="https://images.pexels.com/photos/6758382/pexels-photo-6758382.jpeg" style="height: 100px; width:150px;"/>'
+                        break;
+                    case 'MACAROONS':
+                        cell_picture.innerHTML = '<img src="https://images.pexels.com/photos/808941/pexels-photo-808941.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="height: 100px; width:150px;" />'
+                        break;
+
+                }
+
+                clear_txt()
+            }
+
+        </script>
+    </div>
+</body>
+</html>
