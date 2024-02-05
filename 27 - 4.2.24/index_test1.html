@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        document.write('<p><b>.1</b></p>')
+        const numbers1 = [4, 3, 2, 1];
+        const mult = numbers1.map(num => num * 5);
+        document.write(mult)
+
+
+        document.write('<p><b>.2</b></p>')
+        const numbers2 = [9, 11, 17, 31];
+        const index = numbers2.findIndex(function (number) {
+            return number > 12;
+        });
+        document.write(index);
+
+
+        document.write('<p><b>.3</b></p>')
+        const numbers3 = [8, 6, 4, 2];
+        if (numbers3 % 6 == 0)
+            document.write("")
+        else
+            document.write("false")
+
+
+        document.write('<p><b>.4</b></p>')
+        const numbers4 = [12, 5, 3, 1];
+        const number = numbers4.some((num) => num > 20);
+        document.write(number);
+
+
+        document.write('<p><b>.5</b></p>')
+        const numbers5 = ['a', 2, 'b', 1];
+        const array1 = numbers5.filter(e => typeof e === 'string')
+        document.write(array1)
+
+
+        //   document.write('<p><b>.6</b></p>')
+        //   const numbers6 = [8, '6', 4, '3'];
+        //    index = numbers2.findIndex(function (number) {
+        //  return number > 5;
+        //   const array2 = numbers6.filter(e => typeof e === 'number')
+        //  document.write(array2)
+        //   document.write(index)
+        // });
+
+
+        document.write('<p><b>.7</b></p>')
+        const numbers7 = [4, 3, 2, 1];
+        const doubled = numbers7.map(item => item * 2);
+        document.write(doubled); // [2, 4, 6, 8]
+
+
+        document.write('<p><b>.8</b></p>')
+        const numbers8 = [7, 5, 3, 1];
+        const number1 = numbers8.some((num) => num < 9);
+        document.write(number1);
+
+
+        document.write('<p><b>.9</b></p>')
+        const numbers9 = [6, 5, 4, 3, 2, 1];
+        const odds = numbers9.filter((num) => num % 2 === 1);
+        document.write(odds);
+
+        document.write('<p><b>.10</b></p>')
+        const names = ["apple", "mango", "banana"];
+        const hello_names = names.map(name => `${name}- java`)
+        document.write(hello_names);
+
+  
+
+
+
+    </script>
+
+</body>
+</html>
