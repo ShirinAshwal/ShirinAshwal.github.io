@@ -8,6 +8,7 @@
 </head>
 
 <body>
+
     <script>
 
         document.write('<p><b>.1</b></p>')
@@ -44,20 +45,18 @@
         document.write(array1)
 
 
-        //   document.write('<p><b>.6</b></p>')
-        //   const numbers6 = [8, '6', 4, '3'];
-        //    index = numbers2.findIndex(function (number) {
-        //  return number > 5;
-        //   const array2 = numbers6.filter(e => typeof e === 'number')
-        //  document.write(array2)
-        //   document.write(index)
-        // });
+        document.write('<p><b>.6</b></p>')
+        const numbers6 = [8, '6', 4, '3'];
+        const array2 = numbers6.filter(e => typeof e === 'number') || filter(function (number) {
+            return number > 6;
+        });
+        document.write(array2)
 
 
         document.write('<p><b>.7</b></p>')
         const numbers7 = [4, 3, 2, 1];
         const doubled = numbers7.map(item => item * 2);
-        document.write(doubled); // [2, 4, 6, 8]
+        document.write(doubled);
 
 
         document.write('<p><b>.8</b></p>')
@@ -71,14 +70,21 @@
         const odds = numbers9.filter((num) => num % 2 === 1);
         document.write(odds);
 
+
         document.write('<p><b>.10</b></p>')
         const names = ["apple", "mango", "banana"];
         const hello_names = names.map(name => `${name}- java`)
         document.write(hello_names);
 
-  
 
-
+        document.write('<p><b>.16 - JSON</b></p>')
+        const details = {
+            "Birthday": "12.2.2001",
+            "Country": "Israel",
+            "Friends": ["Elinor", "Aviya", "liel", "hodaya"],
+            "Hobbies": ["Drawing", "Listen to Music", "Baking"]
+        }
+        document.write(JSON.stringify(details))
 
     </script>
 
