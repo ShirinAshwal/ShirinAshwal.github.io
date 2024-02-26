@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>GET BY ID</title>
+
+<head>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Get All</h2>
+    GET BY ID : <input type="number" id="user_id_txt" value="0">
+    <button id="get_user" onclick="get_user_by_id()">GET BY ID</button>
+    &nbsp; <span id="result" style="color:red"></span><br /><br />
+    <table id="countries_table" style="width: 100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Capital</th>
+                <th>Number of Citizens</th>
+                <th>Continent</th>
+                <th>Flag</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script>
+        function get_user_by_id() {
+
+            const user_id = document.getElementById('user_id_txt').value
+
+            fetch(`http://localhost:3000/countries/${user_id}`)
+                .then(response => {
+                    if (response.status === 404) {
+                        return null;
+                    }
+                    return response.json()
+                })
+                .then(user => {
+                    
+                    const tbody = document.getElementById('countries_table').getElementsByTagName('tbody')[0]
+                 
+                    if (user == null) {
+                        document.getElementById('result').innerHTML = "Not found ..."
+                        return
+                    }
+
+                    document.getElementById('result').innerHTML = ""
+
+                    const new_row = document.createElement('tr')
+                    insert_cell(new_row, user.id)
+                    insert_cell(new_row, user.name)
+                    insert_cell(new_row, user.capital)
+                    insert_cell(new_row, user.number_of_citizens)
+                    insert_cell(new_row, user.continent)
+
+                    const img = document.createElement("img")
+                    img.src = user.url_to_flag_picture
+                    img.style.width = '100px'
+                    const new_cell = document.createElement('td')
+                    new_cell.appendChild(img)
+                    new_row.appendChild(new_cell)
+                    tbody.appendChild(new_row)
+                })
+        }
+        function insert_cell(new_row, data) {
+            const new_cell = document.createElement('td')
+            new_cell.textContent = data
+            new_row.appendChild(new_cell)
+        }
+        
+        
+    </script>
+</body>
+
+</html>
