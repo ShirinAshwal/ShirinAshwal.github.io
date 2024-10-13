@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>test2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+           table {
+            border: 2px solid black; 
+        }
+        th, td {
+            border: 2px solid black; 
+        }
+        .low-rating {
+            background-color: #CC0000 !important;
+        }
+
+        .high-rating {
+            background-color: #00FF00 !important;
+        }
+        .form-container {
+            margin-top: 20px;
+        }
+        .total-amount {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .d-none {
+            display: none;
+        }
+
+    </style>
+</head>
+<body> 
+    <div class="container">
+        <table class="table mt-3">
+        <table class="table mt-3" id="ratingTable">
+            <thead>
+                <tr>
+                    <td>#</td>
+                    <td>Image of the movie</td>
+                    <td>Name of the movie</td>
+                    <td>Main character name</td>
+                    <td>Rating</td>
+                    <td>Price/ticket</td>
+                    <td>Type</td>
+                    <td>Option</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><img src="image/Cruella.jpg" alt="" style="height: 100px;"><br>
+                    <td>Cruella</td>
+                    <td><a href="https://www.google.co.il/?hl=iw" target="_blank">Cruella de vil</a></td></td>
+                    <td class="rating">5</td>
+                    <td>80</td>
+                    <td>REGULAR</td>
+                    <td><button class="btn btn-primary buy-button" onclick="showForm(20)">Buy</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><img src="image/Simba.jpg" alt="" style="height: 100px;"><br>
+                    <td>The Lion King</td>
+                    <td><a href="https://www.netflix.com/il/" target="_blank">Simba</a></td></td>
+                    <td class="rating">1</td>
+                    <td>70</td>
+                    <td>REGULAR</td>
+                    <td><button class="btn btn-primary buy-button" onclick="showForm(20)">Buy</button></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><img src="image/Deadpool.jpg" alt="" style="height: 100px;"><br>
+                    <td>Deadpool</td>
+                    <td><a href="https://play.google.com/store/apps?hl=he&gl=US&pli=1" target="_blank">Deadpool</a></td></td>
+                    <td class="rating">4</td>
+                    <td>100</td>
+                    <td>VIP</td>
+                    <td><button class="btn btn-primary buy-button" onclick="showForm(20)">Buy</button></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><img src="image/Belle.jpg" alt="" style="height: 100px;"><br>
+                    <td>Beauty and the Beast</td>
+                    <td><a href="https://www.youtube.com/" target="_blank">Belle</a></td></td>
+                    <td class="rating">1</td>
+                    <td>70</td>
+                    <td>REGULAR</td>
+                    <td><button class="btn btn-primary buy-button" onclick="showForm(20)">Buy</button></td>
+                </tr>
+            <tbody>
+        </table>
+        <div id="purchase-form" class="form-container d-none">
+            <h3></h3>
+            <label for="ticket-quantity"></label>
+            <input type="number" id="ticket-quantity" value="1" min="1" onchange="updateTotal()">
+            <div id="total-price" class="total-amount"> ₪0.00</div>
+            <button class="btn btn-custom mt-3" onclick="alert('הכרטיסים נרכשו בהצלחה!')"></button>
+            <button class="btn btn-primary mt-3" onclick="alert('הטופס נשלח!')">שלח</button>
+        </div>
+    </div>
+    <script>
+        function applyRowColors() {
+            const rows = document.querySelectorAll('#ratingTable tbody tr');
+
+            rows.forEach(row => {
+                const ratingCell = row.querySelector('.rating');
+                const rating = parseFloat(ratingCell.textContent);
+
+                if (rating < 2) {
+                    row.classList.add('low-rating');
+                } else if (rating >= 4) {
+                    row.classList.add('high-rating');
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', applyRowColors);
+
+        function showForm(eventId) {
+            document.getElementById('purchase-form').classList.remove('d-none');
+        }
+
+        function updateTotal() {
+            const pricePerTicket = 100; 
+            const quantity = document.getElementById('ticket-quantity').value;
+            const totalPrice = pricePerTicket * quantity;
+            document.getElementById('total-price').innerText = `סכום כולל: ₪${totalPrice.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
